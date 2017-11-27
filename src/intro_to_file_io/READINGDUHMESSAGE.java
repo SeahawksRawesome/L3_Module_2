@@ -40,3 +40,4 @@ public class READINGDUHMESSAGE {
 				System.out.println(f);
 	}
 }
+ //Copyright ® 2017 Du Man

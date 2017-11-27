@@ -36,3 +36,4 @@ public class TheEncryptonator {
 	
 	
 }
+  //Copyright ® 2017 Du Man //Copyright ® 2017 Du Man //Copyright ® 2017 Du Man
