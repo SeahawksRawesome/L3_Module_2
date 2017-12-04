@@ -1,10 +1,16 @@
 package intro_to_file_io;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class Tasks {
+public class Tasks implements ActionListener{
 	JFrame f1;
 	JPanel p1;
 	JButton load;
@@ -14,6 +20,23 @@ public class Tasks {
 	public static void main(String[] args) {
 		Tasks task = new Tasks();
 	//	System.out.println("Teswtst");
+		//Write to a file
+				try {
+					FileWriter fw = new FileWriter("src/intro_to_file_io/.txt");
+					
+					/*
+					NOTE: To append to a file that already exists, add true as a second parameter when calling the
+					      FileWriter constructor.
+					      (e.g. FileWriter fw = new FileWriter("src/intro_to_file_io/test2.txt", true);)
+					*/
+					
+					fw.write("\nThis is me writing a message");
+						
+					fw.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				
 	}
 	Tasks(){
 		f1 = new JFrame();
@@ -35,4 +58,14 @@ public class Tasks {
 		remove.setText("Remove");
 		save.setText("Save");
 	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		if(e.getSource() == add) {
+			String s = JOptionPane.showInputDialog("Add a Tersk?");
+			
+		}
+		
+	}
+	
 }
