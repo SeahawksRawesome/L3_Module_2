@@ -14,7 +14,7 @@ public class TheEncryptonator {
 		String en = JOptionPane.showInputDialog("GIVE DUH MESS AGE:");
 		String f = "";
 		for (int i = 0; i < en.length(); i++) {
-			f += (char)(en.charAt(i) + i*i);
+			f += (char)(en.charAt(i) + i*i + 2 * 3 + 23 - 23^i);
 		}
 		System.out.println(f);
 		try {

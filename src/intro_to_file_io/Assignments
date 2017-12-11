@@ -15,3 +15,8 @@ Study the examples in IntroToFileIO.java. Ask your teacher for any clarification
 	The load button will load a new task list into the program and display it.
 	The program should automatically load the last saved list from the file at startup and display it.
  	If you do not complete it in the alloted time, you shall be deducted brownie points.  
+ 	
+ 	start brownies: 400 
+ 	browine points added 12/3/17(for working hard): 10
+ 	Deducted: 20
+ 	browine points added 12/3/17(for working hard): -10

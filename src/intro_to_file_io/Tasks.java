@@ -2,6 +2,9 @@ package intro_to_file_io;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -17,6 +20,7 @@ public class Tasks implements ActionListener{
 	JButton save;
 	JButton add;
 	JButton remove;
+	String allTasks = "Add Tasks here \n";
 	public static void main(String[] args) {
 		Tasks task = new Tasks();
 	//	System.out.println("Teswtst");
@@ -57,15 +61,54 @@ public class Tasks implements ActionListener{
 		load.setText("Load");
 		remove.setText("Remove");
 		save.setText("Save");
+	add.addActionListener(this);
+	load.addActionListener(this);
+	remove.addActionListener(this);
+	save.addActionListener(this);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getSource() == add) {
 			String s = JOptionPane.showInputDialog("Add a Tersk?");
-			
+			allTasks = allTasks + s + "\n";			
 		}
-		
+		if(e.getSource() == save) {
+			try {
+				FileWriter FYLE = new FileWriter("src/intro_to_file_io/TaskPane.txt");
+				FYLE.write(allTasks);
+				FYLE.close();
+			}
+			catch (IOException e1) {
+				e1.printStackTrace();
+			}
+				JOptionPane.showMessageDialog(null, "Saving...");
+		}
+		if(e.getSource() == load) {
+			try {
+				BufferedReader br = new BufferedReader(new FileReader("src/intro_to_file_io/TaskPane.txt"));
+				
+				String line = br.readLine();
+				allTasks = "";
+				
+			while(line != null){
+					allTasks += line + "\n";
+					line = br.readLine();
+				}
+				
+				br.close();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+			JOptionPane.showMessageDialog(null, allTasks);
+		}
+		if(e.getSource() == remove) {
+			int index = allTasks.lastIndexOf("\n");
+		}
 	}
 	
 }
