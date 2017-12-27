@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,9 +21,12 @@ public class Tasks implements ActionListener{
 	JButton save;
 	JButton add;
 	JButton remove;
-	String allTasks = "Add Tasks here \n";
+	static String allTasks = "Add Tasks here \n";
+	static ArrayList<String> TASKS = new ArrayList<String>();
+	
 	public static void main(String[] args) {
 		Tasks task = new Tasks();
+		TASKS.add(allTasks);
 	//	System.out.println("Teswtst");
 		//Write to a file
 				try {
@@ -102,13 +106,16 @@ public class Tasks implements ActionListener{
 				e1.printStackTrace();
 			} catch (IOException e2) {
 				// TODO Auto-generated catch block
-				e2.printStackTrace();
+				e2.printStackTrace();	
 			}
 			JOptionPane.showMessageDialog(null, allTasks);
 		}
 		if(e.getSource() == remove) {
-			
-			
+			TASKS.add(allTasks);
+			String Text = JOptionPane.showInputDialog("What would you like to remove?");
+			for (int i = 0; i < TASKS.size(); i++) {
+				
+			}
 		}
 	}
 	
