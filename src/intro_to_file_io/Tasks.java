@@ -107,7 +107,8 @@ public class Tasks implements ActionListener{
 			JOptionPane.showMessageDialog(null, allTasks);
 		}
 		if(e.getSource() == remove) {
-			int index = allTasks.lastIndexOf("\n");
+			
+			
 		}
 	}
 	
